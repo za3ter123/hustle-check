@@ -1,0 +1,6 @@
+{
+  "name": "hustle-check-web",
+  "private": true,
+  "type": "module",
+  "main": "calc.test.js"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "hustle-check",
+  "description": "Hustle Check: an honest earnings and fit calculator for online side hustles.",
+  "owner": {
+    "name": "za3ter123",
+    "url": "https://github.com/za3ter123"
+  },
+  "plugins": [
+    {
+      "name": "hustle-check",
+      "source": "./",
+      "description": "Check an online side hustle: a 12 month earnings range that scales with your hours, tool prices, market, fit and sources."
+    }
+  ]
+}

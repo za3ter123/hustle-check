@@ -1,0 +1,4 @@
+.impeccable/
+.ruff_cache/
+node_modules/
+hustle-check-*.json

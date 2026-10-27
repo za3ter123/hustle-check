@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; base-uri 'none'; form-action 'none'">
+<title>Hustle Check: what could your side hustle make?</title>
+<meta name="description" content="Pick an online side hustle and see an honest 12 month money estimate, the tools it needs, the market, and whether it fits you.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='8' fill='%23F2F0EC'/%3E%3Crect x='14' y='7' width='4' height='18' rx='2' fill='%23FF5410'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="inline.js"></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><rect x="6" y="2.5" width="2" height="9" rx="1" fill="var(--accent)"/></svg></span>
+      Hustle Check
+    </div>
+    <div class="example"><span class="led" aria-hidden="true"></span><span id="tag">Sourced</span></div>
+  </header>
+
+  <h1>What could your side hustle make? <span>Try one.</span></h1>
+
+  <form class="field" id="form" role="search">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+    <label for="q" class="sr">Your side hustle</label>
+    <input id="q" name="q" autocomplete="off" spellcheck="false" maxlength="80" placeholder="Type a side hustle" enterkeyhint="go">
+    <button class="go" type="submit" aria-label="Check this side hustle">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </form>
+
+  <div class="keys" id="keys" role="group" aria-label="Quick picks"></div>
+  <p class="flash" id="flash" role="alert" hidden></p>
+
+  <main id="result">
+    <div class="device rise" id="earn" aria-labelledby="h-earn">
+      <p class="ai-flag" id="aiFlag" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3.5 21 19.5H3z"/><path d="M12 10v4.5M12 17.2v.1"/></svg>
+        <span>AI estimate, not checked. Every number on this page is a guess.</span>
+      </p>
+      <div class="label row-lbl"><span id="h-earn">Typical after a year</span><span id="estRamp"></span></div>
+      <div class="headline" aria-live="polite">
+        <span class="amt fig"><span id="headLo">$0</span><span class="to">to</span><span class="hi" id="headHi">$0</span></span>
+        <span class="per">a month</span>
+      </div>
+
+      <div class="fader">
+        <div class="fader-top">
+          <label for="hrs">Hours a week</label>
+          <div class="hours fig" aria-hidden="true"><span id="hrsOut">6</span><small>h</small></div>
+        </div>
+        <div class="range" id="range">
+          <input type="range" id="hrs" min="2" max="20" step="1" value="6" aria-valuetext="6 hours a week">
+          <div class="ticks" id="ticks" aria-hidden="true"></div>
+        </div>
+        <p class="fader-hint" id="faderHint"></p>
+      </div>
+
+      <div class="readout" aria-hidden="true">
+        <div><span class="k">Month</span><span class="v fig mo" id="roM">12</span></div>
+        <div><span class="k"><i></i>Typical</span><span class="v fig" id="roT">$0</span></div>
+        <div><span class="k"><i class="d"></i>High</span><span class="v fig" id="roH">$0</span></div>
+        <div><span class="k"><i class="z"></i>Low</span><span class="v fig" id="roL">$0</span></div>
+      </div>
+      <svg class="chart" id="chart" role="slider" tabindex="0" aria-label="Month on the 12 month chart" aria-valuemin="1" aria-valuemax="12" aria-valuenow="12"></svg>
+      <p class="drag-hint">Drag the chart to see any month.</p>
+
+      <p class="note">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
+        <span id="payout"></span>
+      </p>
+      <div class="strong">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-ink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17 10 11l4 4 6-7"/><path d="M15 8h5v5"/></svg>
+        <span>Strong ones make <b id="strongHi">$0+</b> a month.</span>
+      </div>
+    </div>
+
+    <section class="rise" aria-labelledby="h-market">
+      <h2 id="h-market">The market</h2>
+      <div class="trend">
+        <div>
+          <div class="label row-lbl">Trend <span id="estTrend"></span></div>
+          <div class="big-word" id="trendWord"></div>
+          <p id="trendText"></p>
+        </div>
+        <svg class="spark" id="spark" viewBox="0 0 120 52" role="img"></svg>
+      </div>
+      <div class="comp">
+        <div>
+          <div class="label row-lbl">Competition <span id="estComp"></span></div>
+          <div class="big-word" id="compWord"></div>
+          <p id="compText"></p>
+        </div>
+        <div class="meter" id="meter" role="img"></div>
+      </div>
+      <h3 class="row-lbl">Less crowded angles <span id="estAngles"></span></h3>
+      <ul class="angles" id="angles"></ul>
+    </section>
+
+    <section class="rise" aria-labelledby="h-tools" id="sec-tools">
+      <h2 id="h-tools">Tools you need</h2>
+      <ul class="tools" id="tools"></ul>
+      <div class="total">
+        <div class="total-row">
+          <div class="label row-lbl">Total <span id="estTools"></span></div>
+          <div class="total-amt fig swap" id="total" aria-live="polite">$0<small>a month</small></div>
+        </div>
+        <div class="switch-row">
+          <label for="free" id="freeLbl">Free way to start: $0</label>
+          <button class="switch" id="free" type="button" role="switch" aria-checked="false" aria-labelledby="freeLbl"></button>
+        </div>
+      </div>
+      <p class="foot">Prices change. Check before you buy.<br><span id="checked"></span></p>
+    </section>
+
+    <section class="rise" aria-labelledby="h-fit">
+      <h2 id="h-fit">Fits you?</h2>
+      <div class="asks" id="asks"></div>
+      <div class="label row-lbl marks-lbl">Six checks <span id="estFacts"></span></div>
+      <div class="fit" id="fit" role="group" aria-label="The six checks. Tap one to read why."></div>
+      <p class="fit-read" aria-live="polite" id="fitRead"></p>
+      <div class="verdict">
+        <div class="big-word" id="verdict"></div>
+        <div class="count fig"><span id="score">0</span><small>of 6</small></div>
+      </div>
+    </section>
+
+    <section class="rise" aria-labelledby="h-first">
+      <h2 id="h-first" class="row-lbl">Time to first dollar <span id="estFirst"></span></h2>
+      <div class="first">
+        <div class="months fig" id="firstBig"></div>
+        <p id="firstText"></p>
+      </div>
+      <div class="track" aria-hidden="true" id="track"></div>
+      <div class="track-lbl" aria-hidden="true" id="trackLbl"></div>
+    </section>
+
+    <section aria-labelledby="h-src">
+      <details class="sources" id="sources">
+        <summary><span id="h-src">Sources</span><span class="src-count" id="srcCount"></span>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div id="srcList"></div>
+      </details>
+    </section>
+
+    <section class="share" aria-labelledby="h-share">
+      <h2 id="h-share">Share</h2>
+      <button class="row-key" type="button" id="copy">
+        <span><b>Copy link</b><span>Opens this result with your hours and answers.</span></span>
+        <span class="arw" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span>
+      </button>
+      <p class="copied" id="copied" role="status"></p>
+      <label class="sr" for="linkOut">Share link</label>
+      <input class="link-out" id="linkOut" readonly hidden>
+    </section>
+  </main>
+
+  <div class="refuse rise" id="refuse" hidden>
+    <div class="refuse-card">
+      <div class="example">No calculation</div>
+      <h2>Hustle Check is for side hustles.</h2>
+      <p class="lead">That sounds like a real business. This tool is not built for those.</p>
+      <ul class="cando">
+        <li><svg class="no" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+          <span>It can't plan a company, find investors, or help with licences, rent or staff.</span></li>
+        <li><svg class="yes" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+          <span><b>It helps you pick and start a side hustle</b> you can run from your phone or laptop in a few hours a week.</span></li>
+      </ul>
+    </div>
+    <p class="try" id="tryLbl">Try one of these</p>
+    <div class="sugg" id="suggest" role="group" aria-labelledby="tryLbl"></div>
+  </div>
+
+  <div class="refuse rise" id="unknown" hidden>
+    <div class="refuse-card">
+      <div class="example">No numbers yet</div>
+      <h2 id="unkTitle">No numbers for this one yet</h2>
+      <p class="lead" id="unkLead"></p>
+      <div id="estBox" hidden>
+        <button class="cta" type="button" id="estimate">
+          <span class="spin" aria-hidden="true"></span><span id="estLbl">Estimate this one</span>
+        </button>
+        <p class="cta-note">A rough AI guess. Nobody checks the numbers.</p>
+      </div>
+      <p class="err" id="estErr" role="alert" hidden></p>
+      <p class="cta-note" id="skillNote" hidden>The Hustle Check skill for Claude can research this one with sources and send you a link that opens here.</p>
+    </div>
+    <p class="try" id="closeLbl">Closest ones with numbers</p>
+    <div class="sugg" id="closeList" role="group" aria-labelledby="closeLbl"></div>
+  </div>
+</div>
+</body>
+</html>

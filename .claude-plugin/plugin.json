@@ -1,0 +1,18 @@
+{
+  "name": "hustle-check",
+  "version": "0.2.0",
+  "description": "Check an online side hustle like AI clipping: a 12 month earnings range that scales with your hours, tool prices, market, fit and sources, with every number sourced or marked est.",
+  "author": {
+    "name": "Hustle Check contributors",
+    "url": "https://github.com/za3ter123"
+  },
+  "repository": "https://github.com/za3ter123/hustle-check",
+  "license": "MIT",
+  "keywords": [
+    "side-hustle",
+    "ai-clipping",
+    "faceless-tiktok",
+    "earnings-calculator",
+    "calculator"
+  ]
+}
